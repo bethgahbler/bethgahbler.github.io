@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen 05 - Mobile Initial State | GuerillaBox Upgrade Modal</title>
+    <link rel="stylesheet" href="upgrade-popup.css">
+    <style>
+        body {
+            background: #f3f4f6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 10px;
+            /* Force mobile viewport */
+            max-width: 375px;
+            margin: 0 auto;
+        }
+        .screen-info {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #6366f1;
+        }
+        .screen-info h1 {
+            margin: 0 0 8px;
+            font-size: 16px;
+            color: #111827;
+        }
+        .screen-info p {
+            margin: 0;
+            color: #6b7280;
+            font-size: 12px;
+        }
+        .viewport-indicator {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .modal-overlay {
+            position: static !important;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            display: flex !important;
+            opacity: 1 !important;
+            min-height: 600px;
+            padding: 10px;
+        }
+        .modal-container {
+            transform: translateY(0) scale(1) !important;
+            margin: 10px;
+            border-radius: 12px;
+        }
+        .modal-content {
+            padding: 0 16px 16px;
+        }
+        .modal-title {
+            font-size: 18px;
+        }
+        .gorilla-emoji {
+            font-size: 40px;
+        }
+        .option {
+            padding: 16px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="screen-info">
+        <h1>Screen 05: Mobile Initial State</h1>
+        <p>Mobile-optimized version (375px width) of the initial popup</p>
+    </div>
+
+    <div class="viewport-indicator">
+        📱 Mobile Viewport: 375px wide
+    </div>
+
+    <!-- Modal in static display mode -->
+    <div class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <button class="close-btn" aria-label="Close">&times;</button>
+            </div>
+            
+            <div class="modal-content">
+                <div class="gorilla-mascot">
+                    <div class="gorilla-emoji">🦍</div>
+                </div>
+                
+                <div class="modal-text">
+                    <h2 class="modal-title">Whoa there, box collector!</h2>
+                    <p class="modal-description">
+                        Looks like you've hit your free plan's sweet spot of 3 boxes. 
+                        We get it—when something works this well, you want more of it. 
+                        Good news: we've got you covered.
+                    </p>
+                </div>
+
+                <div class="upgrade-options">
+                    <div class="option premium-option">
+                        <div class="option-header">
+                            <h3>Go Premium</h3>
+                            <div class="price">$10<span>/month</span></div>
+                        </div>
+                        <ul class="features">
+                            <li>Unlimited boxes</li>
+                            <li>Priority support</li>
+                            <li>Advanced analytics</li>
+                        </ul>
+                        <button class="btn btn-primary">Upgrade Now</button>
+                    </div>
+
+                    <div class="option trial-option">
+                        <div class="option-header">
+                            <h3>Try Before You Buy</h3>
+                            <div class="price">Free<span>/14 days</span></div>
+                        </div>
+                        <ul class="features">
+                            <li>Full premium access</li>
+                            <li>No commitment</li>
+                            <li>Cancel anytime</li>
+                        </ul>
+                        <button class="btn btn-secondary">Start Free Trial</button>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <p class="reassurance">No sneaky charges. Cancel anytime. We're the good guys, promise.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuerillaBox Upgrade Modal - All Screens</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin: 0 0 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+        
+        .screens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .screen-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .screen-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .card-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 0 0 8px;
+        }
+        
+        .card-description {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin: 0 0 12px;
+            line-height: 1.4;
+        }
+        
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .tag {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .tag.copy { background: #fef3c7; color: #92400e; }
+        .tag.mobile { background: #ecfdf5; color: #065f46; }
+        .tag.interaction { background: #fce7f3; color: #be185d; }
+        .tag.success { background: #dbeafe; color: #1e40af; }
+        
+        .card-preview {
+            height: 200px;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .preview-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            transform: scale(0.3);
+            transform-origin: top left;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 333.33%;
+            height: 333.33%;
+            pointer-events: none;
+        }
+        
+        .card-footer {
+            padding: 20px;
+        }
+        
+        .view-btn {
+            width: 100%;
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        
+        .view-btn:hover {
+            background: #5855eb;
+        }
+        
+        .stats {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+        }
+        
+        .stat-item {
+            color: white;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .screens-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .card-preview {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🦍 GuerillaBox Upgrade Modal</h1>
+        <p>Complete design system with all states and variations</p>
+    </div>
+    
+    <div class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Total Screens</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Copy Variants</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Mobile Views</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Responsive</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="screens-grid">
+        <div class="screen-card">
+            <div class="card-header">
+                <h3 class="card-title">01. Initial Popup State</h3>
+                <p class="card-description">Default copy variant showing the initial upgrade modal when user hits 3-box limit</p>
+                <div class="card-tags">
+                    <span class="tag">Default</span>
+                    <span class="tag copy">Collector Theme</span>
+                </div>
+            </div>
+            <div class="card-preview">
+                <iframe src="screen-01-initial-state.html" class="preview-iframe"></iframe>
+            </div>
+            <div class="card-footer">
+                <button class="view-btn" onclick="window.open('screen-01-initial-state.html', '_blank')">
+                    View Full Screen
+                </button>
+            </div>
+        </div>
+        
+        <div class="screen-card">
+            <div class="card-header">
+                <h3 class="card-title">02. Direct & Energetic</h3>
+                <p class="card-description">Copy variant with gaming metaphor and food analogy for direct approach</p>
+                <div class="card-tags">
+                    <span class="tag copy">Variant 2</span>
+                    <span class="tag">Gaming</span>
+                </div>
+            </div>
+            <div class="card-preview">
+                <iframe src="screen-02-variant-direct.html" class="preview-iframe"></iframe>
+            </div>
+            <div class="card-footer">
+                <button class="view-btn" onclick="window.open('screen-02-variant-direct.html', '_blank')">
+                    View Full Screen
+                </button>
+            </div>
+        </div>
+        
+        <div class="screen-card">
+            <div class="card-header">
+                <h3 class="card-title">03. Empathetic</h3>
+                <p class="card-description">Acknowledges exact user action with empathy and world domination humor</p>
+                <div class="card-tags">
+                    <span class="tag copy">Variant 3</span>
+                    <span class="tag">Empathetic</span>
+                </div>
+            </div>
+            <div class="card-preview">
+                <iframe src="screen-03-variant-empathetic.html" class="preview-iframe"></iframe>
+            </div>
+            <div class="card-footer">
+                <button class="view-btn" onclick="window.open('screen-03-variant-empathetic.html', '_blank')">
+                    View Full Screen
+                </button>
+            </div>
+        </div>
+        
+        <div class="screen-card">
+            <div class="card-header">
+                <h3 class="card-title">04. Achievement-Based</h3>
+                <p class="card-description">Gaming achievement reference with relatable clothing analogy</p>
+                <div class="card-tags">
+                    <span class="tag copy">Variant 4</span>
+                    <span class="tag">Achievement</span>
+                </div>
+            </div>
+            <div class="card-preview">
+                <iframe src="screen-04-variant-achievement.html" class="preview-iframe"></iframe>
+            </div>
+            <div class="card-footer">
+                <button class="view-btn" onclick="window.open('screen-04-variant-achievement.html', '_blank')">
+                    View Full Screen
+                </button>
+            </div>
+        </div>
+        
+        <div class="screen-card">
+            <div class="card-header">
+                <h3 class="card-title">05. Mobile Initial</h3>
+                <p class="card-description">Mobile-optimized version (375px) of the initial popup state</p>
+                <div class="card-tags">
+                    <span class="tag mobile">Mobile</span>
+                    <span class="tag">375px</span>
+                </div>
+            </div>
+            <div class="card-preview">
+                <iframe src="screen-05-mobile-initial.html" class="preview-iframe"></iframe>
+            </div>
+            <div class="card-footer">
+                <button class="view-btn" onclick="window.open('screen-05-mobile-initial.html', '_blank')">
+                    View Full Screen
+                </button>
+            </div>
+        </div>
+        
+        <div class="screen-card">
+            <div class="card-header">
+                <h3 class="card-title">06. Mobile Empathetic</h3>
+                <p class="card-description">Mobile-optimized empathetic copy variant with world domination humor</p>
+                <div class="card-tags">
+                    <span class="tag mobile">Mobile</span>
+                    <span class="tag copy">Empathetic</span>
+                </div>
+            </div>
+            <div class="card-preview">
+                <iframe src="screen-06-mobile-empathetic.html" class="preview-iframe"></iframe>
+            </div>
+            <div class="card-footer">
+                <button class="view-btn" onclick="window.open('screen-06-mobile-empathetic.html', '_blank')">
+                    View Full Screen
+                </button>
+            </div>
+        </div>
+        
+        <div class="screen-card">
+            <div class="card-header">
+                <h3 class="card-title">07. Hover States</h3>
+                <p class="card-description">Shows various hover effects, button states, and interactive elements</p>
+                <div class="card-tags">
+                    <span class="tag interaction">Hover</span>
+                    <span class="tag">Interactive</span>
+                </div>
+            </div>
+            <div class="card-preview">
+                <iframe src="screen-07-hover-states.html" class="preview-iframe"></iframe>
+            </div>
+            <div class="card-footer">
+                <button class="view-btn" onclick="window.open('screen-07-hover-states.html', '_blank')">
+                    View Full Screen
+                </button>
+            </div>
+        </div>
+        
+        <div class="screen-card">
+            <div class="card-header">
+                <h3 class="card-title">08. Focus States</h3>
+                <p class="card-description">Keyboard focus indicators and accessibility features demonstration</p>
+                <div class="card-tags">
+                    <span class="tag interaction">Focus</span>
+                    <span class="tag">A11y</span>
+                </div>
+            </div>
+            <div class="card-preview">
+                <iframe src="screen-08-focus-states.html" class="preview-iframe"></iframe>
+            </div>
+            <div class="card-footer">
+                <button class="view-btn" onclick="window.open('screen-08-focus-states.html', '_blank')">
+                    View Full Screen
+                </button>
+            </div>
+        </div>
+        
+        <div class="screen-card">
+            <div class="card-header">
+                <h3 class="card-title">09. Premium Success</h3>
+                <p class="card-description">Success screen shown after premium upgrade completion</p>
+                <div class="card-tags">
+                    <span class="tag success">Success</span>
+                    <span class="tag">Premium</span>
+                </div>
+            </div>
+            <div class="card-preview">
+                <iframe src="screen-09-success-premium.html" class="preview-iframe"></iframe>
+            </div>
+            <div class="card-footer">
+                <button class="view-btn" onclick="window.open('screen-09-success-premium.html', '_blank')">
+                    View Full Screen
+                </button>
+            </div>
+        </div>
+        
+        <div class="screen-card">
+            <div class="card-header">
+                <h3 class="card-title">10. Trial Success</h3>
+                <p class="card-description">Success screen shown after free trial activation with countdown</p>
+                <div class="card-tags">
+                    <span class="tag success">Success</span>
+                    <span class="tag">Trial</span>
+                </div>
+            </div>
+            <div class="card-preview">
+                <iframe src="screen-10-success-trial.html" class="preview-iframe"></iframe>
+            </div>
+            <div class="card-footer">
+                <button class="view-btn" onclick="window.open('screen-10-success-trial.html', '_blank')">
+                    View Full Screen
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>GuerillaBox Upgrade Modal Design System • Built with ❤️ and subtle dry humor</p>
+        <p>Open <strong>upgrade-popup.html</strong> for the interactive demo</p>
+    </div>
+</body>
+</html>

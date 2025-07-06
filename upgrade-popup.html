@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuerillaBox - Upgrade Modal</title>
+    <link rel="stylesheet" href="upgrade-popup.css">
+</head>
+<body>
+    <!-- Demo page content -->
+    <div class="demo-page">
+        <h1>GuerillaBox Dashboard</h1>
+        <p>Your current boxes: WhatsApp, Instagram, Facebook</p>
+        <button id="add-box-btn" class="add-box-btn">+ Add New Box</button>
+    </div>
+
+    <!-- Modal overlay -->
+    <div id="upgrade-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-container">
+            <div class="modal-header">
+                <button class="close-btn" aria-label="Close">&times;</button>
+            </div>
+            
+            <div class="modal-content">
+                <div class="gorilla-mascot">
+                    <div class="gorilla-emoji">🦍</div>
+                </div>
+                
+                <div class="modal-text">
+                    <h2 class="modal-title" data-copy-variant="1">Whoa there, box collector!</h2>
+                    <p class="modal-description" data-copy-variant="1">
+                        Looks like you've hit your free plan's sweet spot of 3 boxes. 
+                        We get it—when something works this well, you want more of it. 
+                        Good news: we've got you covered.
+                    </p>
+                </div>
+
+                <div class="upgrade-options">
+                    <div class="option premium-option">
+                        <div class="option-header">
+                            <h3>Go Premium</h3>
+                            <div class="price">$10<span>/month</span></div>
+                        </div>
+                        <ul class="features">
+                            <li>Unlimited boxes</li>
+                            <li>Priority support</li>
+                            <li>Advanced analytics</li>
+                        </ul>
+                        <button class="btn btn-primary">Upgrade Now</button>
+                    </div>
+
+                    <div class="option trial-option">
+                        <div class="option-header">
+                            <h3>Try Before You Buy</h3>
+                            <div class="price">Free<span>/14 days</span></div>
+                        </div>
+                        <ul class="features">
+                            <li>Full premium access</li>
+                            <li>No commitment</li>
+                            <li>Cancel anytime</li>
+                        </ul>
+                        <button class="btn btn-secondary">Start Free Trial</button>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <p class="reassurance">No sneaky charges. Cancel anytime. We're the good guys, promise.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copy variations for A/B testing (hidden) -->
+    <div class="copy-variants" style="display: none;">
+        <!-- Variant 2: More direct -->
+        <h2 data-copy-variant="2">Time to level up your box game</h2>
+        <p data-copy-variant="2">
+            Three boxes down, unlimited to go! Your free plan was just the appetizer. 
+            Ready for the main course?
+        </p>
+
+        <!-- Variant 3: Empathetic -->
+        <h2 data-copy-variant="3">We see you trying to add that 4th box...</h2>
+        <p data-copy-variant="3">
+            Trust us, we've been there. You start with one box, then two, then suddenly 
+            you're planning world domination through superior customer communication. 
+            Let's make that happen.
+        </p>
+
+        <!-- Variant 4: Playful -->
+        <h2 data-copy-variant="4">Box collector achievement: Unlocked!</h2>
+        <p data-copy-variant="4">
+            Congratulations! You've officially outgrown your free plan. It's like when 
+            you outgrow your favorite jeans—bittersweet, but time for an upgrade.
+        </p>
+    </div>
+
+    <script src="upgrade-popup.js"></script>
+</body>
+</html>

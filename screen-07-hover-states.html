@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen 07 - Hover & Interaction States | GuerillaBox Upgrade Modal</title>
+    <link rel="stylesheet" href="upgrade-popup.css">
+    <style>
+        body {
+            background: #f3f4f6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .screen-info {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ef4444;
+        }
+        .screen-info h1 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #111827;
+        }
+        .screen-info p {
+            margin: 0;
+            color: #6b7280;
+            font-size: 14px;
+        }
+        .modal-overlay {
+            position: static !important;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            display: flex !important;
+            opacity: 1 !important;
+            min-height: 600px;
+        }
+        .modal-container {
+            transform: translateY(0) scale(1) !important;
+        }
+        
+        /* Force hover states to be visible */
+        .option:nth-child(1) {
+            border-color: #6366f1 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15) !important;
+        }
+        
+        .btn-primary {
+            background: #5855eb !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3) !important;
+        }
+        
+        .btn-secondary {
+            background: #e5e7eb !important;
+            border-color: #9ca3af !important;
+            transform: translateY(-1px) !important;
+        }
+        
+        .close-btn {
+            color: #374151 !important;
+            background: #f3f4f6 !important;
+        }
+        
+        /* Add shimmer effect to primary button */
+        .btn-primary::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .state-annotation {
+            position: absolute;
+            background: #fef3c7;
+            color: #92400e;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            z-index: 10;
+        }
+        
+        .annotation-1 {
+            top: 20px;
+            right: 60px;
+        }
+        
+        .annotation-2 {
+            bottom: 80px;
+            left: 50px;
+        }
+        
+        .annotation-3 {
+            bottom: 80px;
+            right: 50px;
+        }
+        
+        .annotation-4 {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="screen-info">
+        <h1>Screen 07: Hover & Interaction States</h1>
+        <p>Showing various hover effects, button states, and interactive elements</p>
+    </div>
+
+    <!-- Modal in static display mode -->
+    <div class="modal-overlay">
+        <div class="modal-container" style="position: relative;">
+            <div class="state-annotation annotation-1">Close button hover</div>
+            
+            <div class="modal-header">
+                <button class="close-btn" aria-label="Close">&times;</button>
+            </div>
+            
+            <div class="modal-content">
+                <div class="gorilla-mascot">
+                    <div class="gorilla-emoji">🦍</div>
+                </div>
+                
+                <div class="modal-text">
+                    <h2 class="modal-title">Whoa there, box collector!</h2>
+                    <p class="modal-description">
+                        Looks like you've hit your free plan's sweet spot of 3 boxes. 
+                        We get it—when something works this well, you want more of it. 
+                        Good news: we've got you covered.
+                    </p>
+                </div>
+
+                <div class="upgrade-options">
+                    <div class="option premium-option" style="position: relative;">
+                        <div class="state-annotation annotation-2">Card hover state</div>
+                        <div class="option-header">
+                            <h3>Go Premium</h3>
+                            <div class="price">$10<span>/month</span></div>
+                        </div>
+                        <ul class="features">
+                            <li>Unlimited boxes</li>
+                            <li>Priority support</li>
+                            <li>Advanced analytics</li>
+                        </ul>
+                        <button class="btn btn-primary" style="position: relative; overflow: hidden;">
+                            Upgrade Now
+                        </button>
+                    </div>
+
+                    <div class="option trial-option" style="position: relative;">
+                        <div class="state-annotation annotation-3">Secondary hover</div>
+                        <div class="option-header">
+                            <h3>Try Before You Buy</h3>
+                            <div class="price">Free<span>/14 days</span></div>
+                        </div>
+                        <ul class="features">
+                            <li>Full premium access</li>
+                            <li>No commitment</li>
+                            <li>Cancel anytime</li>
+                        </ul>
+                        <button class="btn btn-secondary">Start Free Trial</button>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <p class="reassurance">No sneaky charges. Cancel anytime. We're the good guys, promise.</p>
+                </div>
+            </div>
+            
+            <div class="state-annotation annotation-4">Shimmer effect on primary button</div>
+        </div>
+    </div>
+</body>
+</html>
