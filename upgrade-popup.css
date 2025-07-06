@@ -418,3 +418,24 @@
         display: none;
     }
 }
+.back-button {
+    display: inline-block;
+    background-color: #6366f1;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 20px 0;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+.back-button:hover {
+    background-color: #4f46e5;
+    color: #fff;
+    text-decoration: none;
+}
